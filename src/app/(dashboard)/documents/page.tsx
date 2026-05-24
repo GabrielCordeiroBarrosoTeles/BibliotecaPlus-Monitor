@@ -4,7 +4,7 @@ import { useState } from 'react';
 import { useQuery } from '@tanstack/react-query';
 import api from '@/lib/api';
 import type { Document, PaginatedResponse } from '@/types';
-import { FileText, Download, Eye, Search, Upload, Filter } from 'lucide-react';
+import { FileText, Download, Search, Upload } from 'lucide-react';
 import { formatDate, formatFileSize } from '@/lib/utils';
 import { toast } from 'sonner';
 

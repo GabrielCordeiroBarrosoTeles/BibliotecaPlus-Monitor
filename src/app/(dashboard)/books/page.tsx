@@ -5,9 +5,9 @@ import { useQuery } from '@tanstack/react-query';
 import { useRouter } from 'next/navigation';
 import api from '@/lib/api';
 import type { Book, PaginatedResponse } from '@/types';
-import { BookOpen, Plus, Search, Filter } from 'lucide-react';
+import { BookOpen, Plus, Search } from 'lucide-react';
 import Image from 'next/image';
-import { cn, truncate } from '@/lib/utils';
+import { cn } from '@/lib/utils';
 
 export default function BooksPage() {
   const router = useRouter();
