@@ -7,6 +7,10 @@ export interface AuthUser {
   email: string;
   role: 'ADMIN' | 'LIBRARIAN' | 'PROFESSOR' | 'STUDENT';
   avatarUrl?: string;
+  matriculation?: string;
+  phone?: string;
+  maxLoans?: number;
+  loanDays?: number;
 }
 
 interface AuthState {

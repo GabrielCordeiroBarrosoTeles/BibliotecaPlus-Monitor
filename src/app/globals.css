@@ -4,51 +4,98 @@
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
-    --primary: 221.2 83.2% 53.3%;
-    --primary-foreground: 210 40% 98%;
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 221.2 83.2% 53.3%;
-    --radius: 0.5rem;
+    /* ── Superfícies ─────────────────────────────────────────────────────── */
+    --background:         220 22% 95%;   /* off-white azulado institucional  */
+    --foreground:         222 47% 11%;   /* navy escuro — texto principal     */
+
+    --card:               0 0% 100%;     /* branco puro para cards           */
+    --card-foreground:    222 47% 11%;
+
+    --popover:            0 0% 100%;
+    --popover-foreground: 222 47% 11%;
+
+    /* ── Brand — navy profundo ───────────────────────────────────────────── */
+    --primary:            222 62% 36%;   /* navy real — #1d3f7a              */
+    --primary-foreground: 0 0% 100%;
+
+    /* ── Secundário — cinza-azulado claro ───────────────────────────────── */
+    --secondary:          220 16% 90%;
+    --secondary-foreground: 222 47% 20%;
+
+    --muted:              220 16% 93%;
+    --muted-foreground:   220 13% 48%;
+
+    /* ── Accent — âmbar/ouro académico ──────────────────────────────────── */
+    --accent:             38 85% 50%;    /* ouro universitário — #d97706     */
+    --accent-foreground:  222 47% 11%;
+
+    --destructive:        0 72% 51%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border:             220 16% 86%;
+    --input:              220 16% 86%;
+    --ring:               222 62% 36%;
+    --radius:             0.375rem;
+
+    /* ── Sidebar tokens (dark navy) ─────────────────────────────────────── */
+    --sidebar-bg:         222 47% 13%;   /* #192144 — navy escuro            */
+    --sidebar-fg:         220 30% 85%;   /* texto claro na sidebar           */
+    --sidebar-fg-muted:   220 20% 55%;   /* texto atenuado na sidebar        */
+    --sidebar-active-bg:  38 85% 50%;    /* item ativo = ouro                */
+    --sidebar-active-fg:  222 47% 10%;   /* texto escuro sobre ouro          */
+    --sidebar-hover-bg:   222 40% 20%;   /* hover = navy um tom mais claro   */
+    --sidebar-border:     222 40% 20%;
+    --sidebar-width:      260px;
   }
 
   .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
-    --primary: 217.2 91.2% 59.8%;
-    --primary-foreground: 222.2 47.4% 11.2%;
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
+    --background:         222 47% 9%;
+    --foreground:         210 40% 96%;
+    --card:               222 47% 12%;
+    --card-foreground:    210 40% 96%;
+    --popover:            222 47% 12%;
+    --popover-foreground: 210 40% 96%;
+    --primary:            222 62% 55%;
+    --primary-foreground: 0 0% 100%;
+    --secondary:          222 36% 18%;
+    --secondary-foreground: 210 40% 96%;
+    --muted:              222 36% 18%;
+    --muted-foreground:   215 20% 60%;
+    --accent:             38 85% 50%;
+    --accent-foreground:  222 47% 11%;
+    --destructive:        0 63% 48%;
+    --destructive-foreground: 0 0% 100%;
+    --border:             222 36% 18%;
+    --input:              222 36% 18%;
   }
 }
 
 @layer base {
   * { @apply border-border; }
-  body { @apply bg-background text-foreground; }
+  body { @apply bg-background text-foreground font-sans; }
+
+  /* Headings com mais peso visual */
+  h1, h2, h3 { @apply tracking-tight; }
 }
 
-/* Scrollbar elegante */
-::-webkit-scrollbar { width: 6px; height: 6px; }
-::-webkit-scrollbar-track { @apply bg-transparent; }
-::-webkit-scrollbar-thumb { @apply bg-border rounded-full; }
-::-webkit-scrollbar-thumb:hover { @apply bg-muted-foreground/30; }
+/* ── Scrollbar fina e elegante ───────────────────────────────────────────── */
+::-webkit-scrollbar          { width: 5px; height: 5px; }
+::-webkit-scrollbar-track    { background: transparent; }
+::-webkit-scrollbar-thumb    { @apply bg-border rounded-full; }
+::-webkit-scrollbar-thumb:hover { background: hsl(var(--muted-foreground) / 0.4); }
+
+/* ── Sidebar transition ──────────────────────────────────────────────────── */
+.sidebar-slide {
+  transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ── Card com sombra suave acadêmica ─────────────────────────────────────── */
+.academic-card {
+  @apply bg-card rounded-lg border border-border shadow-sm;
+}
+
+/* ── Badge de status mais sólidos ────────────────────────────────────────── */
+.status-active   { @apply bg-emerald-100 text-emerald-800 border border-emerald-200; }
+.status-overdue  { @apply bg-red-100     text-red-800     border border-red-200;     }
+.status-returned { @apply bg-slate-100   text-slate-700   border border-slate-200;   }
+.status-pending  { @apply bg-amber-100   text-amber-800   border border-amber-200;   }

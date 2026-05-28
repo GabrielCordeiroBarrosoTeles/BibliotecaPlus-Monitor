@@ -5,7 +5,7 @@ import { useRouter } from 'next/navigation';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod';
-import { BookOpen, Eye, EyeOff, Loader2, KeyRound } from 'lucide-react';
+import { Eye, EyeOff, Loader2 } from 'lucide-react';
 import { toast } from 'sonner';
 import Link from 'next/link';
 import api from '@/lib/api';
@@ -50,15 +50,13 @@ export default function LoginPage() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-primary/90 via-primary/80 to-primary/70 flex items-center justify-center p-4">
-      <div className="w-full max-w-md space-y-4">
-        {/* ── Login Card ──────────────────────────────────────────────────── */}
+    <div className="min-h-screen bg-primary flex items-center justify-center p-4">
+      <div className="w-full max-w-md">
         <Card className="shadow-2xl border-0">
           <CardHeader className="text-center pb-2">
-            <div className="flex justify-center mb-3">
-              <div className="flex items-center justify-center w-14 h-14 bg-primary/10 rounded-2xl">
-                <BookOpen className="w-7 h-7 text-primary" />
-              </div>
+            <div className="flex justify-center mb-4">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src="/logo.png" alt="BibliotecaPlus" className="h-14 w-auto object-contain" />
             </div>
             <CardTitle className="text-2xl">BibliotecaPlus</CardTitle>
             <CardDescription>Entre com suas credenciais para acessar o painel</CardDescription>
@@ -152,23 +150,6 @@ export default function LoginPage() {
             </p>
           </CardContent>
         </Card>
-
-        {/* ── Dev credentials ─────────────────────────────────────────────── */}
-        {process.env.NODE_ENV === 'development' && (
-          <Card className="bg-white/10 border-white/20 text-white">
-            <CardContent className="p-4">
-              <div className="flex items-center gap-2 mb-3">
-                <KeyRound className="w-3.5 h-3.5 shrink-0" />
-                <span className="text-xs font-semibold">Credenciais de teste</span>
-              </div>
-              <div className="space-y-1 text-xs text-white/80 font-mono">
-                <p>cordeiro@adm.com / 123456 (Admin)</p>
-                <p>cordeiro@aluno.com / 123456 (Aluno)</p>
-                <p>cordeiro@prof.com / 123456 (Professor)</p>
-              </div>
-            </CardContent>
-          </Card>
-        )}
       </div>
     </div>
   );

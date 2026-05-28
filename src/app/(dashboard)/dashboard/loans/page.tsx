@@ -47,7 +47,7 @@ export default function LoansPage() {
       const params = new URLSearchParams({ page: String(page), limit: '20' });
       if (status) params.set('status', status);
       const res = await api.get(`/loans?${params}`);
-      return res.data.data ?? res.data;
+      return res.data;
     },
   });
 

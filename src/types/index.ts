@@ -125,6 +125,20 @@ export interface Document {
   createdAt: string;
 }
 
+// ─── Reservation ─────────────────────────────────────────────────────────────
+export type ReservationStatus = 'PENDING' | 'READY' | 'FULFILLED' | 'CANCELLED' | 'EXPIRED';
+
+export interface Reservation {
+  id: string;
+  userId: string;
+  bookId: string;
+  status: ReservationStatus;
+  expiresAt?: string;
+  createdAt: string;
+  user: Pick<User, 'id' | 'name' | 'email' | 'matriculation'>;
+  book: Pick<Book, 'id' | 'title' | 'coverUrl'> & { author: Pick<Author, 'name'> };
+}
+
 // ─── Dashboard Stats ──────────────────────────────────────────────────────────
 export interface DashboardStats {
   totalBooks: number;
